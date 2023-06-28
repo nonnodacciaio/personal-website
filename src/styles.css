@@ -1,1 +1,33 @@
 /* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+
+html,
+body {
+	height: 100%;
+}
+
+body {
+	margin: 0;
+	font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.dark-theme {
+	--background: #333333;
+	--text-color: #ffffff;
+	font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+}
+
+.light-theme {
+	--background: #ffffff;
+	--text-color: #333333;
+	font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+}
+
+body {
+	background-color: var(--background);
+	color: var(--text-color);
+}
