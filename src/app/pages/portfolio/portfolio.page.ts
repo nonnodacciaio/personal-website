@@ -3,7 +3,7 @@ import { Component } from "@angular/core";
 @Component({
 	selector: `portfolio`,
 	template: `<div class="w-1/2 mx-auto my-3 p-3 shadow rounded">
-		<h3 color="accent">Portfolio</h3>
+		<h3 class="text-amber-500">Portfolio</h3>
 		<p>This is where I would keep all my interesting projects... if I had any</p>
 		<p>
 			To be fair at the moment I haven't made anything super interesting outside work apart for this website, but I want to work on open source projects to hone my skills and to see what's out

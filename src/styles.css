@@ -12,19 +12,16 @@ body {
 
 body {
 	margin: 0;
-	font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
 .dark-theme {
 	--background: #333333;
 	--text-color: #ffffff;
-	font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
 }
 
 .light-theme {
 	--background: #ffffff;
 	--text-color: #333333;
-	font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
 }
 
 body {

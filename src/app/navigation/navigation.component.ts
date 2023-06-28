@@ -6,22 +6,19 @@ import { Router } from "@angular/router";
 	template: `
 		<div class="flex m-3">
 			<a
-				[class.text-accent]="isActive('home')"
-				color="primary"
+				[color]="isActive('home') ? 'accent' : 'primary'"
 				mat-button
 				[routerLink]="'home'">
 				Home
 			</a>
 			<a
-				[class.text-accent]="isActive('portfolio')"
-				color="primary"
+				[color]="isActive('portfolio') ? 'accent' : 'primary'"
 				mat-button
 				[routerLink]="'portfolio'">
 				Portfolio
 			</a>
 			<a
-				[class.text-accent]="isActive('contacts')"
-				color="primary"
+				[color]="isActive('contacts') ? 'accent' : 'primary'"
 				mat-button
 				[routerLink]="'contacts'">
 				Contacts
