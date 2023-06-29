@@ -20,11 +20,28 @@ export class ThemeToggleComponent {
 			this.element.nativeElement.querySelector(".mdc-switch__icon--on").firstChild.setAttribute("d", SunMoonSvgs.Moon);
 			this.element.nativeElement.querySelector(".mdc-switch__icon--off").firstChild.setAttribute("d", SunMoonSvgs.Sun);
 		}
+
+		this.getTheme();
 	}
 
 	toggleTheme(): void {
 		this.isDarkTheme = !this.isDarkTheme;
 		const theme = this.isDarkTheme ? "dark" : "light";
 		this.themeService.setTheme(theme);
+		localStorage.setItem("theme", theme);
+	}
+
+	getTheme(): void {
+		const savedTheme = localStorage.getItem("theme");
+		if (savedTheme) {
+			this.isDarkTheme = savedTheme === "dark";
+		}
+		this.updateTheme();
+	}
+
+	updateTheme(): void {
+		const theme = this.isDarkTheme ? "dark" : "light";
+		this.themeService.setTheme(theme);
+		localStorage.setItem("theme", theme);
 	}
 }
