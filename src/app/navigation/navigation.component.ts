@@ -4,25 +4,30 @@ import { Router } from "@angular/router";
 @Component({
 	selector: `navigation`,
 	template: `
-		<div class="flex m-3">
-			<a
-				[color]="isActive('home') ? 'accent' : 'primary'"
-				mat-button
-				[routerLink]="'home'">
-				Home
-			</a>
-			<a
-				[color]="isActive('portfolio') ? 'accent' : 'primary'"
-				mat-button
-				[routerLink]="'portfolio'">
-				Portfolio
-			</a>
-			<a
-				[color]="isActive('contacts') ? 'accent' : 'primary'"
-				mat-button
-				[routerLink]="'contacts'">
-				Contacts
-			</a>
+		<div class="flex justify-between items-center m-3">
+			<div class="flex">
+				<a
+					[color]="isActive('home') ? 'accent' : 'primary'"
+					mat-button
+					[routerLink]="'home'">
+					Home
+				</a>
+				<a
+					[color]="isActive('portfolio') ? 'accent' : 'primary'"
+					mat-button
+					[routerLink]="'portfolio'">
+					Portfolio
+				</a>
+				<a
+					[color]="isActive('contacts') ? 'accent' : 'primary'"
+					mat-button
+					[routerLink]="'contacts'">
+					Contacts
+				</a>
+			</div>
+			<div>
+				<theme-toggle></theme-toggle>
+			</div>
 		</div>
 		<mat-divider></mat-divider>
 	`

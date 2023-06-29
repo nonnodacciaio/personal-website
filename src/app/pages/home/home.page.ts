@@ -2,7 +2,7 @@ import { Component } from "@angular/core";
 
 @Component({
 	selector: `home`,
-	template: `<div class="w-1/2 mx-auto my-3 p-3 shadow rounded">
+	template: `<div class="sm:w-full md:w-1/2 mx-auto my-3 p-3 md:shadow rounded">
 		<div>
 			<h3 class="text-amber-500">Bio</h3>
 		</div>

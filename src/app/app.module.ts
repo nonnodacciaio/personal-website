@@ -11,10 +11,11 @@ import { MatButtonModule } from "@angular/material/button";
 import { MatDividerModule } from "@angular/material/divider";
 import { MatTabsModule } from "@angular/material/tabs";
 import { HomeModule } from "./pages/home/home.module";
+import { MatIconModule } from "@angular/material/icon";
 
 @NgModule({
 	declarations: [AppComponent, NavigationComponent, ThemeToggleComponent],
-	imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, MatSlideToggleModule, MatButtonModule, MatDividerModule, MatTabsModule, HomeModule],
+	imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, MatSlideToggleModule, MatButtonModule, MatDividerModule, MatTabsModule, HomeModule, MatIconModule],
 	providers: [],
 	bootstrap: [AppComponent]
 })

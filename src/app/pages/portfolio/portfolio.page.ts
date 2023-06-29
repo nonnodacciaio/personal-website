@@ -2,7 +2,7 @@ import { Component } from "@angular/core";
 
 @Component({
 	selector: `portfolio`,
-	template: `<div class="w-1/2 mx-auto my-3 p-3 shadow rounded">
+	template: `<div class="sm:w-full md:w-1/2 mx-auto my-3 p-3 md:shadow rounded">
 		<h3 class="text-amber-500">Portfolio</h3>
 		<p>This is where I would keep all my interesting projects... if I had any</p>
 		<p>
@@ -13,6 +13,7 @@ import { Component } from "@angular/core";
 		<ul>
 			<li>
 				<a
+					mat-button
 					href="https://nonnodacciaio.github.io/marcosabau.github.io/"
 					target="_blank"
 					class="hover:underline cursor-pointer"

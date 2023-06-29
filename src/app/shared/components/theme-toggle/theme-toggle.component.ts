@@ -1,18 +1,26 @@
-import { Component } from "@angular/core";
+import { Component, ElementRef, ViewChild } from "@angular/core";
 import { ThemeService } from "../../services/theme.service";
+import { SunMoonSvgs } from "./sunMoonSvgs";
 
 @Component({
 	selector: "theme-toggle",
 	template: ` <mat-slide-toggle
-		class="fixed top-3 right-3"
+		[checked]="isDarkTheme"
 		(change)="toggleTheme()"
-		[name]="'Dark mode'">
-	</mat-slide-toggle>`
+		#darkModeSwitch></mat-slide-toggle>`
 })
 export class ThemeToggleComponent {
+	@ViewChild("darkModeSwitch", { read: ElementRef }) element: ElementRef | undefined;
 	isDarkTheme = false;
 
 	constructor(private themeService: ThemeService) {}
+
+	ngAfterViewInit() {
+		if (this.element) {
+			this.element.nativeElement.querySelector(".mdc-switch__icon--on").firstChild.setAttribute("d", SunMoonSvgs.Moon);
+			this.element.nativeElement.querySelector(".mdc-switch__icon--off").firstChild.setAttribute("d", SunMoonSvgs.Sun);
+		}
+	}
 
 	toggleTheme(): void {
 		this.isDarkTheme = !this.isDarkTheme;
