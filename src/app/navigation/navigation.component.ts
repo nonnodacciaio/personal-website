@@ -8,7 +8,7 @@ import { Router } from "@angular/router";
 			<div class="flex">
 				<a
           routerLinkActive="home" 
-          [routerLinkActiveOptions]="{ exact: true, isActive: true }
+          [routerLinkActiveOptions]="{ exact: true, isActive: true }"
 					[color]="isActive('home') ? 'accent' : 'primary'"
 					mat-button
 					[routerLink]="'home'">
