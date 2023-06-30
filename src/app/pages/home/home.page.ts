@@ -4,7 +4,7 @@ import { Component } from "@angular/core";
 	selector: `home`,
 	template: `<div class="sm:w-full md:w-1/2 mx-auto my-3 p-3 md:shadow rounded">
 		<div>
-			<h3 class="text-amber-500">Bio</h3>
+			<h3 class="text-amber-300">Bio</h3>
 		</div>
 		<p>
 			Hey there! I'm Marco Sabau, a Software Developer who loves building awesome web applications. I may not have a fancy degree in computer science, but I did study International Relationships
