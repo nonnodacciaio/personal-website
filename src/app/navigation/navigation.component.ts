@@ -7,6 +7,8 @@ import { Router } from "@angular/router";
 		<div class="flex justify-between items-center m-3">
 			<div class="flex">
 				<a
+          routerLinkActive="home" 
+          [routerLinkActiveOptions]="{ exact: true, isActive: true }
 					[color]="isActive('home') ? 'accent' : 'primary'"
 					mat-button
 					[routerLink]="'home'">
