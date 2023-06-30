@@ -20,8 +20,9 @@ export class ThemeToggleComponent {
 			this.element.nativeElement.querySelector(".mdc-switch__icon--on").firstChild.setAttribute("d", SunMoonSvgs.Moon);
 			this.element.nativeElement.querySelector(".mdc-switch__icon--off").firstChild.setAttribute("d", SunMoonSvgs.Sun);
 		}
-
-		this.getTheme();
+		setTimeout(() => {
+			this.getTheme();
+		}, 1);
 	}
 
 	toggleTheme(): void {
