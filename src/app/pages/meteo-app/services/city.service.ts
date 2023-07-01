@@ -5,7 +5,7 @@ import { CityResponse } from "../models/city-response.model";
 
 @Injectable()
 export class CityService {
-	private apiUrl = "http://api.geonames.org/search";
+	private apiUrl = "https://secure.geonames.org/search";
 
 	constructor(private http: HttpClient) {}
 
