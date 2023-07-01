@@ -1,4 +1,4 @@
-import { GraphComponent } from "./components/graph.component";
+import { GraphComponent, RawChartData } from "./components/graph.component";
 import { Component, OnDestroy } from "@angular/core";
 import { Subject, takeUntil } from "rxjs";
 import { CityResponse, Geoname } from "./models/city-response.model";
@@ -10,7 +10,7 @@ import { MeteoService } from "./services/meteo.service";
 @Component({
 	selector: "meteo-app",
 	template: `<div class="sm:w-full md:w-1/2 mx-auto my-3 p-3 md:shadow rounded">
-		<p>This is a small app I made where you can choose a city and it should give you the current weather and a graph showing the day's temperature</p>
+		<p>This is a small app I made where you can choose a city and it should give you the current weather and a graph showing the temperature</p>
 		<input
 			class="rounded p-1 text-black"
 			matInput
@@ -34,7 +34,7 @@ export class MeteoPage implements OnDestroy {
 	userInput: string = "";
 	city: Geoname | null = null;
 	cityMeteo: MeteoResponse | null = null;
-	chartData: any | null = null;
+	chartData: RawChartData = { data: [], timeStamps: [] };
 
 	destroy$ = new Subject();
 
@@ -62,7 +62,7 @@ export class MeteoPage implements OnDestroy {
 					}
 				},
 				error: (error: Response) => {
-					this.messageService.error("There was an error while retrieving your city");
+					this.messageService.error("Couldn't get city data");
 				}
 			});
 	}
@@ -75,10 +75,9 @@ export class MeteoPage implements OnDestroy {
 				next: (result: MeteoResponse) => {
 					const tempMeteo: MeteoResponse = result;
 					this.cityMeteo = tempMeteo;
-					this.chartData.date = this.cityMeteo?.hourly.time;
-					this.chartData.temperature = this.cityMeteo?.hourly.temperature_2m;
+					this.chartData.timeStamps = this.cityMeteo?.hourly.time;
+					this.chartData.data = this.cityMeteo?.hourly.temperature_2m;
 				},
-				complete: () => {},
 				error: (error: Response) => {
 					this.messageService.error("Couldn't get meteo data");
 				}

@@ -4,7 +4,7 @@ import { Component } from "@angular/core";
 	selector: `portfolio`,
 	template: `<div class="sm:w-full md:w-1/2 mx-auto my-3 p-3 md:shadow rounded">
 		<h3 class="text-amber-300">Portfolio</h3>
-		<p>This is where I would keep all my interesting projects</p>
+		<p>Here are a couple of projects</p>
 		<ul>
 			<li>
 				<a

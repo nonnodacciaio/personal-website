@@ -1,5 +1,4 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from "@angular/core";
-import { ChartConfiguration, ChartData, ChartOptions, ChartType } from "chart.js";
+import { Component, Input, OnChanges, SimpleChanges } from "@angular/core";
 
 @Component({
 	selector: "graph",
@@ -7,31 +6,38 @@ import { ChartConfiguration, ChartData, ChartOptions, ChartType } from "chart.js
 		<div>
 			<canvas
 				baseChart
-				[data]="chartData"
-				[options]="chartOptions"></canvas>
+				[data]="lineData.data"
+				[type]="lineData.type"></canvas>
 		</div>
 	`
 })
-export class GraphComponent implements OnInit {
-	@Input() rawChartData: { date: string[]; temperature: string[] } | null = null;
-	chartData: any = null;
+export class GraphComponent implements OnChanges {
+	@Input() rawChartData: RawChartData | null = null;
+	lineData: any;
 
-	chartOptions: ChartOptions = {};
-
-	ngOnInit(): void {
-		this.rawDataToChartData();
+	ngOnChanges(changes: SimpleChanges): void {
+		this.setChartData();
 	}
 
-	rawDataToChartData(): void {
-		if (this.rawChartData) {
-			let dateTemp: { date: string; temp: string }[] = [];
-
-			this.rawChartData.date.forEach((date, dateIndex) => {
-				dateTemp.push({ date: date, temp: this.rawChartData?.temperature[dateIndex] ?? "" });
-			});
-
-			this.chartData.data.labels = dateTemp.map(date => date.date);
-			this.chartData.data.datasets[0] = { label: "Temperature", data: dateTemp.map(temp => temp.temp) };
-		}
+	setChartData(): void {
+		this.lineData = {
+			type: "line",
+			data: {
+				datasets: [
+					{
+						data: this.rawChartData?.timeStamps?.flatMap((ts, tsIndex) => ({
+							x: ts,
+							y: this.rawChartData?.data?.[tsIndex]
+						})),
+						label: "Temperature"
+					}
+				]
+			}
+		};
 	}
+}
+
+export class RawChartData {
+	timeStamps: string[] | undefined;
+	data: number[] | undefined;
 }
