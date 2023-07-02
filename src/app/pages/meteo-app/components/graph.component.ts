@@ -1,4 +1,5 @@
 import { Component, Input, OnChanges, SimpleChanges } from "@angular/core";
+import * as moment from "moment";
 
 @Component({
 	selector: "graph",
@@ -7,7 +8,8 @@ import { Component, Input, OnChanges, SimpleChanges } from "@angular/core";
 			<canvas
 				baseChart
 				[data]="lineData.data"
-				[type]="lineData.type"></canvas>
+				[type]="lineData.type"
+				[options]="lineData.options"></canvas>
 		</div>
 	`
 })
@@ -20,18 +22,23 @@ export class GraphComponent implements OnChanges {
 	}
 
 	setChartData(): void {
+		const formattedTimeStamps = this.rawChartData?.timeStamps?.map(ts => moment(ts).format("DD/MM HH:mm"));
+
 		this.lineData = {
 			type: "line",
 			data: {
 				datasets: [
 					{
 						data: this.rawChartData?.timeStamps?.flatMap((ts, tsIndex) => ({
-							x: ts,
+							x: formattedTimeStamps?.[tsIndex],
 							y: this.rawChartData?.data?.[tsIndex]
 						})),
 						label: "Temperature"
 					}
 				]
+			},
+			options: {
+				responsive: true
 			}
 		};
 	}
