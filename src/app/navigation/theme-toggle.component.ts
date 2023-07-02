@@ -1,10 +1,11 @@
 import { Component, ElementRef, ViewChild } from "@angular/core";
-import { ThemeService } from "../../services/theme.service";
 import { SunMoonSvgs } from "./sunMoonSvgs";
+import { ThemeService } from "./services/theme.service";
 
 @Component({
 	selector: "theme-toggle",
 	template: ` <mat-slide-toggle
+		aria-label="theme toggle"
 		[checked]="isDarkTheme"
 		(change)="toggleTheme()"
 		#darkModeSwitch></mat-slide-toggle>`

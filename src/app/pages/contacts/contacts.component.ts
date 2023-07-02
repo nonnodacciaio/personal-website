@@ -6,8 +6,14 @@ import { Component } from "@angular/core";
 		<h3 class="text-amber-300">Contacts</h3>
 		<p>Feel free to get in touch with me using the following methods:</p>
 		<ul>
-			<li class="m-3"><i class="fa-solid fa-envelope"></i>&nbsp;marco.sabau98@gmail.com</li>
-			<li class="m-3">
+			<li
+				class="m-3"
+				aria-label="Email">
+				<i class="fa-solid fa-envelope"></i>&nbsp;marco.sabau98@gmail.com
+			</li>
+			<li
+				class="m-3"
+				aria-label="GitHub Profile">
 				<i class="fa-brands fa-github"></i>&nbsp;<a
 					class="text-amber-300 hover:underline"
 					href="https://www.github.com/nonnodacciaio"
@@ -17,6 +23,7 @@ import { Component } from "@angular/core";
 					target="_blank"
 					rel="noopener noreferrer"
 					class="text-amber-300 hover:underline"
+					aria-label="Open GitHub Profile in a new tab"
 					><i class="fas fa-up-right-from-square"></i
 				></a>
 			</li>

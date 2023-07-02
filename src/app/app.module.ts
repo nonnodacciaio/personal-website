@@ -11,12 +11,12 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { NavigationComponent } from "./navigation/navigation.component";
 import { HomeModule } from "./pages/home/home.module";
-import { ThemeToggleComponent } from "./shared/components/theme-toggle/theme-toggle.component";
-import { NgChartsModule } from 'ng2-charts';
+import { NgChartsModule, ThemeService } from "ng2-charts";
+import { ThemeToggleComponent } from "./navigation/theme-toggle.component";
 
 @NgModule({
 	declarations: [AppComponent, NavigationComponent, ThemeToggleComponent],
-	imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, MatSlideToggleModule, MatButtonModule, MatDividerModule, MatTabsModule, HomeModule, MatIconModule, NgChartsModule],
+	imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, MatSlideToggleModule, MatButtonModule, MatDividerModule, MatIconModule, NgChartsModule],
 	providers: [],
 	bootstrap: [AppComponent]
 })

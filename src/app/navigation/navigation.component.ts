@@ -10,26 +10,33 @@ import { Router } from "@angular/router";
 					routerLinkActive="home"
 					[color]="isActive('home') ? 'accent' : 'primary'"
 					mat-button
-					[routerLink]="'home'">
+					[routerLink]="'home'"
+					aria-label="Home">
 					Home
 				</a>
+
 				<a
 					routerLinkActive="skills"
 					[color]="isActive('skills') ? 'accent' : 'primary'"
 					mat-button
-					[routerLink]="'skills'">
+					[routerLink]="'skills'"
+					aria-label="Skills">
 					Skills
 				</a>
+
 				<a
 					[color]="isActive('portfolio') ? 'accent' : 'primary'"
 					mat-button
-					[routerLink]="'portfolio'">
+					[routerLink]="'portfolio'"
+					aria-label="Portfolio">
 					Portfolio
 				</a>
+
 				<a
 					[color]="isActive('contacts') ? 'accent' : 'primary'"
 					mat-button
-					[routerLink]="'contacts'">
+					[routerLink]="'contacts'"
+					aria-label="Contacts">
 					Contacts
 				</a>
 			</div>
