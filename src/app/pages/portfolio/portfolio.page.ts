@@ -39,6 +39,22 @@ import { Component } from "@angular/core";
 					><i class="fas fa-up-right-from-square"></i
 				></a>
 			</li>
+			<li>
+				<a
+					mat-button
+					href="https://github.com/nonnodacciaio/personal-website"
+					class="hover:underline cursor-pointer"
+					color="accent"
+					>This website</a
+				>&nbsp;<a
+					mat-button
+					href="https://github.com/nonnodacciaio/personal-website"
+					target="_blank"
+					class="hover:underline cursor-pointer"
+					color="accent"
+					><i class="fas fa-up-right-from-square"></i
+				></a>
+			</li>
 		</ul>
 	</div>`
 })
