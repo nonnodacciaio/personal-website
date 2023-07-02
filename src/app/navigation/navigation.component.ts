@@ -14,6 +14,13 @@ import { Router } from "@angular/router";
 					Home
 				</a>
 				<a
+					routerLinkActive="skills"
+					[color]="isActive('skills') ? 'accent' : 'primary'"
+					mat-button
+					[routerLink]="'skills'">
+					Skills
+				</a>
+				<a
 					[color]="isActive('portfolio') ? 'accent' : 'primary'"
 					mat-button
 					[routerLink]="'portfolio'">
