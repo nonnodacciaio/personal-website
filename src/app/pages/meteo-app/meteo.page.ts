@@ -1,6 +1,6 @@
-import { GraphComponent, RawChartData } from "./components/graph.component";
 import { Component, OnDestroy } from "@angular/core";
 import { Subject, takeUntil } from "rxjs";
+import { RawChartData } from "./components/graph.component";
 import { CityResponse, Geoname } from "./models/city-response.model";
 import { MeteoResponse } from "./models/meteo-response.model";
 import { CityService } from "./services/city.service";
@@ -15,6 +15,7 @@ import { MeteoService } from "./services/meteo.service";
 			class="rounded p-1 text-black"
 			matInput
 			[(ngModel)]="userInput"
+			(keyup.enter)="getCity()"
 			placeholder="Enter your city"
 		/><button
 			[color]="'accent'"
@@ -24,9 +25,23 @@ import { MeteoService } from "./services/meteo.service";
 		>
 			<i class="fas fa-search"></i>
 		</button>
+		<div *ngIf="cities">
+			<div>
+				<ng-container *ngFor="let city of cities">
+					<div
+						class="hover:opacity-25 cursor-pointer"
+						(click)="selectCity(city)"
+					>
+						<h2 class="text-amber-300">{{ city?.toponymName }}</h2>
+						<p>{{ city.adminName1 }}</p>
+					</div>
+				</ng-container>
+			</div>
+		</div>
+		<mat-divider></mat-divider>
 		<div *ngIf="cityMeteo">
-			<h2 class="text-amber-300">{{ city?.toponymName }}</h2>
-			<p>Temperature: {{ cityMeteo.current_weather.temperature }}°C</p>
+			<h2 class="text-amber-300">{{ selectedCity?.toponymName }}</h2>
+			<p>Temperature: {{ cityMeteo?.current_weather?.temperature }}°C</p>
 			<p>Weather: {{ meteoService.getWeatherString(cityMeteo.current_weather.weathercode) }}</p>
 			<graph
 				[rawChartData]="chartData"
@@ -37,8 +52,9 @@ import { MeteoService } from "./services/meteo.service";
 })
 export class MeteoPage implements OnDestroy {
 	userInput: string = "";
-	city: Geoname | null = null;
+	cities: Geoname[] = [];
 	cityMeteo: MeteoResponse | null = null;
+	selectedCity: Geoname | null = null;
 	chartData: RawChartData = { data: [], timeStamps: [] };
 
 	destroy$ = new Subject();
@@ -56,16 +72,15 @@ export class MeteoPage implements OnDestroy {
 			.pipe(takeUntil(this.destroy$))
 			.subscribe({
 				next: (result: CityResponse) => {
-					this.city = result.geonames[0];
-					this.getWeather(this.city.lat, this.city.lng);
+					this.cities = result.geonames;
 				},
 				complete: () => {
-					if (!this.city) {
-						this.messageService.error("No city found");
+					if (!this.cities || this.cities.length == 0) {
+						this.messageService.error("No cities with that name found");
 					}
 				},
 				error: (error: Response) => {
-					this.messageService.error("Couldn't get city data");
+					this.messageService.error("Couldn't get cities data");
 				}
 			});
 	}
@@ -83,5 +98,15 @@ export class MeteoPage implements OnDestroy {
 					this.messageService.error(`Couldn't get meteo data ${error.statusText}`);
 				}
 			});
+	}
+
+	selectCity(city: Geoname): void {
+		this.selectedCity = city;
+		this.getWeather(city.lat, city.lng);
+		this.scrollToBottom();
+	}
+
+	private scrollToBottom(): void {
+		setTimeout(() => window.scrollTo(0, document.body.scrollHeight), 100);
 	}
 }
