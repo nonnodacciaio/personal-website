@@ -9,7 +9,8 @@ import * as moment from "moment";
 				baseChart
 				[data]="lineData.data"
 				[type]="lineData.type"
-				[options]="lineData.options"></canvas>
+				[options]="lineData.options"
+			></canvas>
 		</div>
 	`
 })

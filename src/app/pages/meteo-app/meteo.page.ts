@@ -15,18 +15,23 @@ import { MeteoService } from "./services/meteo.service";
 			class="rounded p-1 text-black"
 			matInput
 			[(ngModel)]="userInput"
-			placeholder="Enter your city" /><button
+			placeholder="Enter your city"
+		/><button
 			[color]="'accent'"
 			class="mx-3"
 			mat-button
-			(click)="getCity()">
+			(click)="getCity()"
+		>
 			<i class="fas fa-search"></i>
 		</button>
 		<div *ngIf="cityMeteo">
 			<h2 class="text-amber-300">{{ city?.toponymName }}</h2>
 			<p>Temperature: {{ cityMeteo.current_weather.temperature }}°C</p>
 			<p>Weather: {{ meteoService.getWeatherString(cityMeteo.current_weather.weathercode) }}</p>
-			<graph [rawChartData]="chartData"></graph>
+			<graph
+				[rawChartData]="chartData"
+				#graph
+			></graph>
 		</div>
 	</div>`
 })
@@ -51,14 +56,12 @@ export class MeteoPage implements OnDestroy {
 			.pipe(takeUntil(this.destroy$))
 			.subscribe({
 				next: (result: CityResponse) => {
-					const tempCity: Geoname = result.geonames[0];
-					this.city = tempCity;
+					this.city = result.geonames[0];
+					this.getWeather(this.city.lat, this.city.lng);
 				},
 				complete: () => {
 					if (!this.city) {
 						this.messageService.error("No city found");
-					} else {
-						this.getWeather(this.city.lat, this.city.lng);
 					}
 				},
 				error: (error: Response) => {
@@ -73,13 +76,11 @@ export class MeteoPage implements OnDestroy {
 			.pipe(takeUntil(this.destroy$))
 			.subscribe({
 				next: (result: MeteoResponse) => {
-					const tempMeteo: MeteoResponse = result;
-					this.cityMeteo = tempMeteo;
-					this.chartData.timeStamps = this.cityMeteo?.hourly.time;
-					this.chartData.data = this.cityMeteo?.hourly.temperature_2m;
+					this.cityMeteo = result;
+					this.chartData = { data: this.cityMeteo?.hourly.temperature_2m, timeStamps: this.cityMeteo?.hourly.time };
 				},
 				error: (error: Response) => {
-					this.messageService.error("Couldn't get meteo data");
+					this.messageService.error(`Couldn't get meteo data ${error.statusText}`);
 				}
 			});
 	}
