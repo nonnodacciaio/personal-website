@@ -55,6 +55,22 @@ import { Component } from "@angular/core";
 					><i class="fas fa-up-right-from-square"></i
 				></a>
 			</li>
+			<li>
+				<a
+					mat-button
+					href="https://play.unity.com/mg/other/webgl-65m"
+					class="hover:underline cursor-pointer"
+					color="accent"
+					>A Flappy Bird clone</a
+				>&nbsp;<a
+					mat-button
+					href="https://play.unity.com/mg/other/webgl-65m"
+					target="_blank"
+					class="hover:underline cursor-pointer"
+					color="accent"
+					><i class="fas fa-up-right-from-square"></i
+				></a>
+			</li>
 		</ul>
 	</div>`
 })
