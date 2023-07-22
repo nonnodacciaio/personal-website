@@ -16,5 +16,23 @@
 			"p5": "When I'm not slinging code, you'll find me working on personal projects that let me explore new ideas and push my boundaries. Oh, and I'm a bit of an adrenaline junkie too—I love riding my mountain bike and feeling the wind in my face. And let's not forget my musical side! I enjoy strumming on my guitar and bass, adding some rhythm and melody to my life.",
 			"p6": "So, that's me in a nutshell—a passionate Software Developer with a knack for web development, a love for clean code, and a penchant for adventure. I'm always on the lookout for exciting opportunities to grow and learn while creating amazing solutions. Let's connect and make something awesome together!"
 		}
+	},
+	"skills": {
+		"title": "Skills",
+		"body": "I code mainly in C# and Angular"
+	},
+	"portfolio": {
+		"title": "Portfolio",
+		"body": {
+			"intro": "Here are a couple of projects",
+			"oldPortfolio": "My very old portfolio page",
+			"meteoApp": "Meteo app",
+			"thisWebsite": "This website",
+			"flappyBird": "A Flappy Bird clone"
+		}
+	},
+	"contacts": {
+		"title": "Contacts",
+		"body": "Feel free to get in touch with me using the following methods"
 	}
 }

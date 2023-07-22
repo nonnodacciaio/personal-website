@@ -16,5 +16,23 @@
 			"p5": "Quando non sto scrivendo codice, mi troverai impegnato in progetti personali che mi permettono di esplorare nuove idee e spingere i miei limiti. Ah, e sono anche un po' un amante dell'adrenalina: adoro andare in mountain bike e sentire il vento sul viso. E non dimentichiamo il mio lato musicale! Mi piace suonare chitarra e basso, aggiungendo ritmo e melodia alla mia vita.",
 			"p6": "Insomma, eccomi in poche parole: uno sviluppatore software appassionato e una predilezione per l'avventura. Sono sempre alla ricerca di emozionanti opportunità per crescere e imparare, creando soluzioni straordinarie. Connettiamoci e creiamo qualcosa di fantastico insieme!"
 		}
+	},
+	"skills": {
+		"title": "Skills",
+		"body": "Sviluppo principalmente in C# e Angular"
+	},
+	"portfolio": {
+		"title": "Portfolio",
+		"body": {
+			"intro": "Qua c'è qualche mio progetto",
+			"oldPortfolio": "Il mio vecchio portfolio",
+			"meteoApp": "Meteo app",
+			"thisWebsite": "Questo sito",
+			"flappyBird": "Un clone di Flappy Bird"
+		}
+	},
+	"contacts": {
+		"title": "Contatti",
+		"body": "Potete contattarmi con questi metodi"
 	}
 }
