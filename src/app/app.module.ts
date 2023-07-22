@@ -13,10 +13,12 @@ import { NavigationComponent } from "./navigation/navigation.component";
 import { HomeModule } from "./pages/home/home.module";
 import { NgChartsModule, ThemeService } from "ng2-charts";
 import { ThemeToggleComponent } from "./navigation/theme-toggle.component";
+import { HttpClientModule } from '@angular/common/http';
+import { TranslocoRootModule } from './transloco-root.module';
 
 @NgModule({
 	declarations: [AppComponent, NavigationComponent, ThemeToggleComponent],
-	imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, MatSlideToggleModule, MatButtonModule, MatDividerModule, MatIconModule, NgChartsModule],
+	imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, MatSlideToggleModule, MatButtonModule, MatDividerModule, MatIconModule, NgChartsModule, HttpClientModule, TranslocoRootModule],
 	providers: [],
 	bootstrap: [AppComponent]
 })
