@@ -12,7 +12,7 @@ import { Router } from "@angular/router";
 					mat-button
 					[routerLink]="'home'"
 					aria-label="Home">
-					Home
+					{{ "navigation.home" | transloco }}
 				</a>
 
 				<a
@@ -21,7 +21,7 @@ import { Router } from "@angular/router";
 					mat-button
 					[routerLink]="'skills'"
 					aria-label="Skills">
-					Skills
+					{{ "navigation.skills" | transloco }}
 				</a>
 
 				<a
@@ -29,7 +29,7 @@ import { Router } from "@angular/router";
 					mat-button
 					[routerLink]="'portfolio'"
 					aria-label="Portfolio">
-					Portfolio
+					{{ "navigation.portfolio" | transloco }}
 				</a>
 
 				<a
@@ -37,11 +37,12 @@ import { Router } from "@angular/router";
 					mat-button
 					[routerLink]="'contacts'"
 					aria-label="Contacts">
-					Contacts
+					{{ "navigation.contacts" | transloco }}
 				</a>
 			</div>
 			<div>
-				<theme-toggle></theme-toggle>
+				<language-selector class="mx-3"></language-selector>
+				<theme-toggle class="mx-3"></theme-toggle>
 			</div>
 		</div>
 		<mat-divider></mat-divider>

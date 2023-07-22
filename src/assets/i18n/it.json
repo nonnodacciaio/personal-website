@@ -1,1 +1,20 @@
-{}
+{
+	"navigation": {
+		"home": "Home",
+		"skills": "Skills",
+		"portfolio": "Portfolio",
+		"contacts": "Contatti",
+		"languagePicker": { "italian": "Italiano", "english": "Inglese" }
+	},
+	"home": {
+		"title": "Bio",
+		"body": {
+			"p1": "Ciao! Sono Marco Sabau, uno sviluppatore software che adora creare fantastiche applicazioni. Non ho una laurea in informatica, ma ho studiato Relazioni Internazionali per il Marketing alle superiori. Per potenziare le mie competenze di programmazione, ho completato un fantastico bootcamp di Java della durata di 3 mesi presso Generation Italy.",
+			"p2": "Sono nel settore da un po' di tempo. Nel 2022, ho trascorso ben 2 mesi presso Omis Spa come sviluppatore, affinando il mio mestiere. Attualmente, lavoro presso Famas System da novembre 2022",
+			"p3": "I miei punti di forza sono Angular e C#, ma non mi limito solo a questo. Sperimento con altri linguaggi di programmazione popolari per i miei progetti personali, per mantenermi aggiornato e mantenere le cose fresche ed emozionanti.",
+			"p4": "La mia filosofia quando si tratta di programmazione è incentrata sulla leggibilità, la manutenibilità e la scalabilità del codice. Il codice pulito è fondamentale! Non solo è bello da vedere, ma rende anche la vita più facile per tutti coloro che sono coinvolti.",
+			"p5": "Quando non sto scrivendo codice, mi troverai impegnato in progetti personali che mi permettono di esplorare nuove idee e spingere i miei limiti. Ah, e sono anche un po' un amante dell'adrenalina: adoro andare in mountain bike e sentire il vento sul viso. E non dimentichiamo il mio lato musicale! Mi piace suonare chitarra e basso, aggiungendo ritmo e melodia alla mia vita.",
+			"p6": "Insomma, eccomi in poche parole: uno sviluppatore software appassionato e una predilezione per l'avventura. Sono sempre alla ricerca di emozionanti opportunità per crescere e imparare, creando soluzioni straordinarie. Connettiamoci e creiamo qualcosa di fantastico insieme!"
+		}
+	}
+}
