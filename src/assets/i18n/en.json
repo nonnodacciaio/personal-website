@@ -34,5 +34,15 @@
 	"contacts": {
 		"title": "Contacts",
 		"body": "Feel free to get in touch with me using the following methods"
+	},
+	"messageService": {
+		"close": "Close"
+	},
+	"meteo": {
+		"intro": "This is a small app I made where you can choose a city and it should give you the current weather and a graph showing the temperature",
+		"chooseCity": "Enter your city",
+		"noCity": "No cities with that name found",
+		"errorCity": "Couldn't get city data",
+		"errorMeteo": "Couldn't get meteo data"
 	}
 }

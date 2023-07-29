@@ -34,5 +34,15 @@
 	"contacts": {
 		"title": "Contatti",
 		"body": "Potete contattarmi con questi metodi"
+	},
+	"messageService": {
+		"close": "Chiudi"
+	},
+	"meteo": {
+		"intro": "Questa è una piccola app che ho fatto che permettere di scegliere una città e mostra alcuni dati meteo",
+		"chooseCity": "Inserisci la tua città",
+		"noCity": "Non sono state trovate città con quel nome",
+		"errorCity": "Non è stato possibile recuperare i dati per la città",
+		"errorMeteo": "Non è stato possibile recuperare i dati meteo"
 	}
 }

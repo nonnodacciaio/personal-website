@@ -14,12 +14,13 @@ import { CityService } from "./services/city.service";
 import { MessageService } from "./services/message.service";
 import { MeteoService } from "./services/meteo.service";
 import { MatDividerModule } from "@angular/material/divider";
+import { TranslocoModule } from "@ngneat/transloco";
 
 const routes: Routes = [{ path: "", component: MeteoPage }];
 
 @NgModule({
 	declarations: [MeteoPage, GraphComponent],
-	imports: [RouterModule.forChild(routes), HttpClientModule, MatInputModule, FormsModule, MatButtonModule, MatSnackBarModule, CommonModule, NgChartsModule, MatDividerModule],
+	imports: [RouterModule.forChild(routes), HttpClientModule, MatInputModule, FormsModule, MatButtonModule, MatSnackBarModule, CommonModule, NgChartsModule, MatDividerModule, TranslocoModule],
 	providers: [CityService, MessageService, MeteoService]
 })
 export class MeteoModule {}

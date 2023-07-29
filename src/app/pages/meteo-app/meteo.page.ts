@@ -6,23 +6,22 @@ import { MeteoResponse } from "./models/meteo-response.model";
 import { CityService } from "./services/city.service";
 import { MessageService } from "./services/message.service";
 import { MeteoService } from "./services/meteo.service";
+import { TranslocoService } from "@ngneat/transloco";
 
 @Component({
 	selector: "meteo-app",
 	template: `<div class="sm:w-full md:w-1/2 mx-auto my-3 p-3 md:shadow rounded">
-		<p>This is a small app I made where you can choose a city and it should give you the current weather and a graph showing the temperature</p>
+		<p>{{ "meteo.intro" | transloco }}</p>
 		<input
 			class="rounded p-1 text-black"
 			matInput
 			[(ngModel)]="userInput"
 			(keyup.enter)="getCity()"
-			placeholder="Enter your city"
-		/><button
+			[placeholder]="translocoService.translate('meteo.chooseCity')" /><button
 			[color]="'accent'"
 			class="mx-3"
 			mat-button
-			(click)="getCity()"
-		>
+			(click)="getCity()">
 			<i class="fas fa-search"></i>
 		</button>
 		<div *ngIf="cities">
@@ -30,8 +29,7 @@ import { MeteoService } from "./services/meteo.service";
 				<ng-container *ngFor="let city of cities">
 					<div
 						class="hover:opacity-25 cursor-pointer"
-						(click)="selectCity(city)"
-					>
+						(click)="selectCity(city)">
 						<h2 class="text-amber-300">{{ city?.toponymName }}</h2>
 						<p>{{ city.adminName1 }}</p>
 					</div>
@@ -45,8 +43,7 @@ import { MeteoService } from "./services/meteo.service";
 			<p>Weather: {{ meteoService.getWeatherString(cityMeteo.current_weather.weathercode) }}</p>
 			<graph
 				[rawChartData]="chartData"
-				#graph
-			></graph>
+				#graph></graph>
 		</div>
 	</div>`
 })
@@ -59,7 +56,7 @@ export class MeteoPage implements OnDestroy {
 
 	destroy$ = new Subject();
 
-	constructor(private cityService: CityService, private messageService: MessageService, public meteoService: MeteoService) {}
+	constructor(private cityService: CityService, private messageService: MessageService, public meteoService: MeteoService, public translocoService: TranslocoService) {}
 
 	ngOnDestroy(): void {
 		this.destroy$.next(null);
@@ -76,11 +73,11 @@ export class MeteoPage implements OnDestroy {
 				},
 				complete: () => {
 					if (!this.cities || this.cities.length == 0) {
-						this.messageService.error("No cities with that name found");
+						this.messageService.error(this.translocoService.translate("meteo.noCity"));
 					}
 				},
 				error: (error: Response) => {
-					this.messageService.error("Couldn't get cities data");
+					this.messageService.error(`${this.translocoService.translate("meteo.errorCity")}: ${error.statusText}`);
 				}
 			});
 	}
@@ -95,7 +92,7 @@ export class MeteoPage implements OnDestroy {
 					this.chartData = { data: this.cityMeteo?.hourly.temperature_2m, timeStamps: this.cityMeteo?.hourly.time };
 				},
 				error: (error: Response) => {
-					this.messageService.error(`Couldn't get meteo data ${error.statusText}`);
+					this.messageService.error(`${this.translocoService.translate("meteo.errorMeteo")}: ${error.statusText}`);
 				}
 			});
 	}
