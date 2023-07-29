@@ -4,7 +4,7 @@ import { TranslocoService } from "@ngneat/transloco";
 @Component({
 	selector: "language-selector",
 	template: ` <select
-		class="bg-slate-500"
+		class="text-black rounded p-1"
 		[(ngModel)]="selectedLanguage"
 		(change)="setLanguage(selectedLanguage)">
 		<option value="en">{{ "navigation.languagePicker.english" | transloco }}</option>

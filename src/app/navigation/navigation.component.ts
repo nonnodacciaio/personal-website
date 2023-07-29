@@ -51,7 +51,6 @@ export class NavigationComponent {
 	constructor(private router: Router) {}
 
 	isActive(route: string): boolean {
-		// Check if the current route matches the provided route
 		return this.router.isActive(route, true);
 	}
 }
