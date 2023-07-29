@@ -12,34 +12,38 @@ import { TranslocoService } from "@ngneat/transloco";
 	selector: "meteo-app",
 	template: `<div class="sm:w-full md:w-1/2 mx-auto my-3 p-3 md:shadow rounded">
 		<p>{{ "meteo.intro" | transloco }}</p>
-		<input
-			class="rounded p-1 text-black"
-			matInput
-			[(ngModel)]="userInput"
-			(keyup.enter)="getCity()"
-			[placeholder]="translocoService.translate('meteo.chooseCity')" /><button
+		<mat-form-field>
+			<mat-label>{{ "meteo.chooseCity" | transloco }}</mat-label>
+			<input
+				class=" text-black"
+				matInput
+				[(ngModel)]="userInput"
+				(keyup.enter)="getCity()" />
+		</mat-form-field>
+		<button
 			[color]="'accent'"
 			class="mx-3"
-			mat-button
+			mat-icon-button
 			(click)="getCity()">
 			<i class="fas fa-search"></i>
 		</button>
-		<div *ngIf="cities">
-			<div>
-				<ng-container *ngFor="let city of cities">
-					<div
-						class="hover:opacity-25 cursor-pointer"
-						(click)="selectCity(city)">
-						<h2 class="text-amber-300">{{ city?.toponymName }}</h2>
-						<p>{{ city.adminName1 }}</p>
-					</div>
-				</ng-container>
+
+		<div
+			*ngIf="cities"
+			class="max-h-60 overflow-y-auto my-3">
+			<div *ngFor="let city of cities">
+				<div
+					class="hover:opacity-25 cursor-pointer"
+					(click)="selectCity(city)">
+					<h2 class="text-amber-300">{{ city?.toponymName }}</h2>
+					<p>{{ city.adminName1 }}</p>
+				</div>
 			</div>
 		</div>
 		<mat-divider></mat-divider>
 		<div *ngIf="cityMeteo">
 			<h2 class="text-amber-300">{{ selectedCity?.toponymName }}</h2>
-			<p>{{ "meteo.temperature" | transloco }}: {{ cityMeteo?.current_weather?.temperature }}°C</p>
+			<p>{{ "meteo.temperature" | transloco }}: {{ cityMeteo.current_weather.temperature }}°C</p>
 			<p>{{ "meteo.weather" | transloco }}: {{ meteoService.getWeatherString(cityMeteo.current_weather.weathercode) }}</p>
 			<graph
 				[rawChartData]="chartData"
