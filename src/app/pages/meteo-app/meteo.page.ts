@@ -39,8 +39,8 @@ import { TranslocoService } from "@ngneat/transloco";
 		<mat-divider></mat-divider>
 		<div *ngIf="cityMeteo">
 			<h2 class="text-amber-300">{{ selectedCity?.toponymName }}</h2>
-			<p>Temperature: {{ cityMeteo?.current_weather?.temperature }}°C</p>
-			<p>Weather: {{ meteoService.getWeatherString(cityMeteo.current_weather.weathercode) }}</p>
+			<p>{{ "meteo.temperature" | transloco }}: {{ cityMeteo?.current_weather?.temperature }}°C</p>
+			<p>{{ "meteo.weather" | transloco }}: {{ meteoService.getWeatherString(cityMeteo.current_weather.weathercode) }}</p>
 			<graph
 				[rawChartData]="chartData"
 				#graph></graph>

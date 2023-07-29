@@ -43,6 +43,8 @@
 		"chooseCity": "Inserisci la tua città",
 		"noCity": "Non sono state trovate città con quel nome",
 		"errorCity": "Non è stato possibile recuperare i dati per la città",
-		"errorMeteo": "Non è stato possibile recuperare i dati meteo"
+		"errorMeteo": "Non è stato possibile recuperare i dati meteo",
+		"temperature": "Temperature",
+		"weather": "Weather"
 	}
 }

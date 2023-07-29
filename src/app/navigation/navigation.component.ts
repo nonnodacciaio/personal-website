@@ -42,7 +42,6 @@ import { Router } from "@angular/router";
 			</div>
 			<div>
 				<language-selector class="mx-3"></language-selector>
-				<theme-toggle class="mx-3"></theme-toggle>
 			</div>
 		</div>
 		<mat-divider></mat-divider>
