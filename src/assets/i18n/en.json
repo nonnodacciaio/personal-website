@@ -44,7 +44,7 @@
 		"noCity": "No cities with that name found",
 		"errorCity": "Couldn't get city data",
 		"errorMeteo": "Couldn't get meteo data",
-		"temperature": "Temperatura",
-		"weather": "Meteo"
+		"temperature": "Temperature",
+		"weather": "Weather"
 	}
 }
