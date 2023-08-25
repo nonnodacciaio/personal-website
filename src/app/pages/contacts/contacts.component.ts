@@ -27,6 +27,22 @@ import { Component } from "@angular/core";
 					><i class="fas fa-up-right-from-square"></i
 				></a>
 			</li>
+			<li
+				class="m-3"
+				aria-label="Linkedin">
+				<i class="fa-brands fa-linkedin"></i>&nbsp;<a
+					href="https://www.linkedin.com/in/marco-sabau/"
+					class="text-amber-300 hover:underline"
+					>Linkedin</a
+				>&nbsp;<a
+					href="https://www.linkedin.com/in/marco-sabau/"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="text-amber-300 hover:underline"
+					aria-label="Open Linkedin Profile in a new tab"
+					><i class="fas fa-up-right-from-square"></i
+				></a>
+			</li>
 		</ul>
 	</div>`
 })
