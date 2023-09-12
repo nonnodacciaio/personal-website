@@ -71,6 +71,22 @@ import { Component } from "@angular/core";
 					><i class="fas fa-up-right-from-square"></i
 				></a>
 			</li>
+			<li>
+				<a
+					mat-button
+					href="https://task-manager-addd4.firebaseapp.com/"
+					class="hover:underline cursor-pointer"
+					color="accent"
+					>Task manager app</a
+				>&nbsp;<a
+					mat-button
+					href="https://task-manager-addd4.firebaseapp.com/"
+					target="_blank"
+					class="hover:underline cursor-pointer"
+					color="accent"
+					><i class="fas fa-up-right-from-square"></i
+				></a>
+			</li>
 		</ul>
 	</div>`
 })
