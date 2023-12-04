@@ -9,7 +9,7 @@ import { Component } from "@angular/core";
 			<li
 				class="m-3"
 				aria-label="Email">
-				<i class="fa-solid fa-envelope"></i>&nbsp;marco.sabau98@gmail.com
+				<i class="fa-solid fa-envelope"></i>&nbsp;marco.sabau98&#64;gmail.com
 			</li>
 			<li
 				class="m-3"
