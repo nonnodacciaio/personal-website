@@ -16,9 +16,10 @@ import { AppComponent } from "./app.component";
 import { LanguageSelectorComponent } from "./navigation/language-selector.component";
 import { NavigationComponent } from "./navigation/navigation.component";
 import { TranslocoRootModule } from "./transloco-root.module";
+import { HaloCursorDirective } from "./directives/halo-cursor.directive";
 
 @NgModule({
-	declarations: [AppComponent, NavigationComponent, LanguageSelectorComponent],
+	declarations: [AppComponent, NavigationComponent, LanguageSelectorComponent, HaloCursorDirective],
 	imports: [
 		BrowserModule,
 		AppRoutingModule,
@@ -34,7 +35,6 @@ import { TranslocoRootModule } from "./transloco-root.module";
 		MatSelectModule,
 		FormsModule
 	],
-	providers: [],
 	bootstrap: [AppComponent]
 })
 export class AppModule {}
